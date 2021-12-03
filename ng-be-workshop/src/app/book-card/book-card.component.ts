@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-book-card',
@@ -7,12 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BookCardComponent implements OnInit {
 
-  @Input() content: any;
+  @Input() content!: Book;
+  @Output() detailClicked = new EventEmitter<Book>();
   titlecolor = 'red';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(click: MouseEvent){
+    click.preventDefault();
+    this.detailClicked.emit(this.content);
+    console.log('Click Details-Link');
   }
 
 }
