@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-be-workshop';
+
+  content = {
+    title: 'How to win friends',
+    author: 'Dale Carnegie',
+    abstract: 'In this book ...'
+  };
 }
