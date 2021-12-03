@@ -11,7 +11,9 @@ export class BookComponent implements OnInit {
   searchTerm: string = '';
 
   constructor(private bookApi: BookApiService) {
-    this.books = bookApi.getAll();
+    this.bookApi
+    .getAll()
+    .subscribe(booksFromApi => (this.books = booksFromApi));
   }
 
   ngOnInit(): void {}
